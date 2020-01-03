@@ -1,0 +1,56 @@
+﻿@using Entities
+
+@model List<Entities.Producto>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*@foreach (var item in Model)
+    {
+       <h1> @item.Nombre</h1>
+
+    }*@
+<br />
+<h2>Lista de productos</h2>
+<br />
+
+
+<table class=" table table-hover">
+    <thead class="table-primary">
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Observaciones</th>
+            <th scope="col">Precio distribuidor</th>
+            <th scope="col">Precio Cliente</th>
+            <th scope="col">Fecha Actualizacion</th>
+        </tr>
+    </thead>
+    <tbody class="table-light">
+        @foreach (Producto item in Model)
+        {
+            <tr>
+                <th scope="col">@item.Id</th>
+                <th scope="col">@item.Nombre</th>
+                <th scope="col">@item.Description</th>
+                <th scope="col">@item.Observations</th>
+                <th scope="col">@item.PriceDistributor</th>
+                <th scope="col">@item.PriceClient</th>
+                <th scope="col">@item.DateUpdate</th>
+
+            </tr>
+
+        }
+
+
+    </tbody>
+
+
+
+</table>
+
+
+
+

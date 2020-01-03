@@ -1,0 +1,17 @@
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Data\bin\Debug\Data.dll.config
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Data\bin\Debug\Data.dll
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Data\bin\Debug\Data.pdb
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Data\bin\Debug\Entities.dll
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Data\bin\Debug\EntityFramework.dll
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Data\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Data\bin\Debug\Entities.pdb
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Data\bin\Debug\Entities.dll.config
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Data\bin\Debug\EntityFramework.xml
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Data\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Data\obj\Debug\Data.csprojAssemblyReference.cache
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Data\obj\Debug\Data.csproj.CopyComplete
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Data\obj\Debug\Data.dll
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Data\obj\Debug\Data.pdb

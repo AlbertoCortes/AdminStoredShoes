@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+using Buissnes;
+using Entities;
 namespace AdminStoredShoes.Models
 {
     public class Productos
@@ -22,4 +24,6 @@ namespace AdminStoredShoes.Models
         public string Keywords { get; set; }
         public DateTime DateUpdate { get; set; }
     }
+
+   // static List<Producto> product = BuissnesSrc.GetProductos();
 }

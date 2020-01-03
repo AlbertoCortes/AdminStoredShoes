@@ -56,6 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ACOB_SearchByIdOrName_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="CatBrands.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

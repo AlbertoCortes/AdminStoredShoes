@@ -1,8 +1,12 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 0px;
+    margin-top:0px;
     padding-bottom: 20px;
 }
-
+.navbar navbar-expand-lg navbar-dark bg-primary{
+    padding-top:0px;
+    margin-top:0px;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;

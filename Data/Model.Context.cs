@@ -12,6 +12,8 @@ namespace Data
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DataProductsEntities : DbContext
     {
@@ -41,5 +43,18 @@ namespace Data
         public virtual DbSet<Qualification> Qualification { get; set; }
         public virtual DbSet<SimilarProduct> SimilarProduct { get; set; }
         public virtual DbSet<SizeForProduct> SizeForProduct { get; set; }
+    
+        public virtual ObjectResult<ACOB_SearchByIdOrName_Result> ACOB_SearchByIdOrName(Nullable<int> id, string name)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ACOB_SearchByIdOrName_Result>("ACOB_SearchByIdOrName", idParameter, nameParameter);
+        }
     }
 }

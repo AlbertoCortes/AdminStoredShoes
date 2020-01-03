@@ -9,10 +9,15 @@ namespace Data
     {
         static DataProductsEntities model = new DataProductsEntities();
 
-        public static List<Productos> GetProductos()
+        public static List<Producto> GetProductos()
         {
             var result = from mod in model.Products select mod ;
-            return SerializeJson<IEnumerable<Products>, List<Productos>>(result);
+            return SerializeJson<IEnumerable<Products>, List<Producto>>(result);
+        }
+        public static List<Producto> SearchProducts(int id, string name)
+        {
+            var result = model.ACOB_SearchByIdOrName(id, name);
+            return SerializeJson<IEnumerable<ACOB_SearchByIdOrName_Result>, List<Producto>>(result);
         }
 
         public static List<Imagen> GetImagen(int id)
