@@ -176,18 +176,6 @@
           <Property Name="IdProduct" Type="int" Nullable="false" />
           <Property Name="IdSize" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_CatBrandsImagesProduct">
-          <End Role="CatBrands" Type="Self.CatBrands" Multiplicity="1" />
-          <End Role="ImagesProduct" Type="Self.ImagesProduct" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CatBrands">
-              <PropertyRef Name="IdBrand" />
-            </Principal>
-            <Dependent Role="ImagesProduct">
-              <PropertyRef Name="IdImageProduct" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CatBrandsProducts">
           <End Role="CatBrands" Type="Self.CatBrands" Multiplicity="0..1" />
           <End Role="Products" Type="Self.Products" Multiplicity="*" />
@@ -209,18 +197,6 @@
             </Principal>
             <Dependent Role="CatCatalogs">
               <PropertyRef Name="IdProvider" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CatCatalogsImagesProduct">
-          <End Role="CatCatalogs" Type="Self.CatCatalogs" Multiplicity="1" />
-          <End Role="ImagesProduct" Type="Self.ImagesProduct" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CatCatalogs">
-              <PropertyRef Name="IdCatalog" />
-            </Principal>
-            <Dependent Role="ImagesProduct">
-              <PropertyRef Name="IdImageProduct" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -416,9 +392,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ACOB_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ACOB_Search_Inner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="name" Type="nvarchar(max)" Mode="In" />
+        </Function>
         <Function Name="ACOB_SearchByIdOrName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
           <Parameter Name="name" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="ACOB_SelectImages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
         </Function>
         <EntityContainer Name="DataProductsModelStoreContainer">
           <EntitySet Name="CatBrands" EntityType="Self.CatBrands" Schema="dbo" store:Type="Tables" />
@@ -437,10 +423,6 @@
           <EntitySet Name="Qualification" EntityType="Self.Qualification" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SimilarProduct" EntityType="Self.SimilarProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SizeForProduct" EntityType="Self.SizeForProduct" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_CatBrandsImagesProduct" Association="Self.FK_CatBrandsImagesProduct">
-            <End Role="CatBrands" EntitySet="CatBrands" />
-            <End Role="ImagesProduct" EntitySet="ImagesProduct" />
-          </AssociationSet>
           <AssociationSet Name="FK_CatBrandsProducts" Association="Self.FK_CatBrandsProducts">
             <End Role="CatBrands" EntitySet="CatBrands" />
             <End Role="Products" EntitySet="Products" />
@@ -448,10 +430,6 @@
           <AssociationSet Name="FK_CatCatalogsCatProviders" Association="Self.FK_CatCatalogsCatProviders">
             <End Role="CatProviders" EntitySet="CatProviders" />
             <End Role="CatCatalogs" EntitySet="CatCatalogs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CatCatalogsImagesProduct" Association="Self.FK_CatCatalogsImagesProduct">
-            <End Role="CatCatalogs" EntitySet="CatCatalogs" />
-            <End Role="ImagesProduct" EntitySet="ImagesProduct" />
           </AssociationSet>
           <AssociationSet Name="FK_CatCatalogsProducts" Association="Self.FK_CatCatalogsProducts">
             <End Role="CatCatalogs" EntitySet="CatCatalogs" />
@@ -1074,6 +1052,16 @@
             <Parameter Name="id" Mode="In" Type="Int32" />
             <Parameter Name="name" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="ACOB_Search_Inner" ReturnType="Collection(DataProductsModel.ACOB_Search_Inner_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ACOB_SelectImages" EntitySet="ImagesProduct" ReturnType="Collection(DataProductsModel.ImagesProduct)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ACOB_Delete">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="ACOB_SearchByIdOrName_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -1091,6 +1079,23 @@
           <Property Type="Decimal" Name="PriceMember" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
           <Property Type="String" Name="Keywords" Nullable="false" />
+          <Property Type="DateTime" Name="DateUpdate" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="ACOB_Search_Inner_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Tipo" Nullable="false" />
+          <Property Type="String" Name="Color" Nullable="false" />
+          <Property Type="String" Name="Marca" Nullable="false" />
+          <Property Type="String" Name="Proveedor" Nullable="false" />
+          <Property Type="String" Name="Catalago" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Observations" Nullable="false" />
+          <Property Type="Decimal" Name="PriceDistributor" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PriceClient" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PriceMember" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
           <Property Type="DateTime" Name="DateUpdate" Nullable="false" Precision="23" />
         </ComplexType>
       </Schema>
@@ -1308,6 +1313,29 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ACOB_Search_Inner" FunctionName="DataProductsModel.Store.ACOB_Search_Inner">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DataProductsModel.ACOB_Search_Inner_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+                <ScalarProperty Name="Catalago" ColumnName="Catalago" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+                <ScalarProperty Name="PriceDistributor" ColumnName="PriceDistributor" />
+                <ScalarProperty Name="PriceClient" ColumnName="PriceClient" />
+                <ScalarProperty Name="PriceMember" ColumnName="PriceMember" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ACOB_SelectImages" FunctionName="DataProductsModel.Store.ACOB_SelectImages" />
+          <FunctionImportMapping FunctionImportName="ACOB_Delete" FunctionName="DataProductsModel.Store.ACOB_Delete" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

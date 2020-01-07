@@ -345,9 +345,12 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Productos\Index.cshtml" />
+    <Content Include="Views\Productos\_viewProduct.cshtml" />
+    <Content Include="Views\Productos\_editProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

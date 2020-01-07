@@ -7,7 +7,6 @@ C:\Users\Curso\Documents\Academia\AdminStoredShoes\Entities\bin\Debug\Newtonsoft
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Entities\bin\Debug\EntityFramework.xml
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Entities\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Entities\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Curso\Documents\Academia\AdminStoredShoes\Entities\obj\Debug\Entities.csprojAssemblyReference.cache
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Entities\obj\Debug\Entities.csproj.CoreCompileInputs.cache
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Entities\obj\Debug\Entities.csproj.CopyComplete
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Entities\obj\Debug\Entities.dll

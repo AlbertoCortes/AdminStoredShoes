@@ -14,5 +14,7 @@ namespace Entities
         public byte[] Image { get; set; }
         public string DateUpdate { get; set; }
         public string IsEnabled { get; set; }
+
+        
     }
 }

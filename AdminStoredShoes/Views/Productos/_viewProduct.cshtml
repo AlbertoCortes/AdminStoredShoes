@@ -1,0 +1,179 @@
+﻿@using Entities
+@using System.Drawing
+@model Tuple<ProductoInfo, List<Imagen>>
+@{
+    ViewBag.Title = "_viewProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2>...Ver Producto...</h2>
+<br />  
+
+
+<form >
+    <div class="row">
+
+        <div class="col-lg">
+
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Id</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="readOnlyInput" type="text" placeholder="@Model.Item1.Id" readonly="">
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Nombre</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="readOnlyInput" type="text" placeholder="@Model.Item1.Nombre" readonly="">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Tipo</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="readOnlyInput" type="text" placeholder="@Model.Item1.Tipo" readonly="">
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Color</label>
+                <div class="col-sm-10">
+
+                    <input class="form-control" id="readOnlyInput" type="text" placeholder="@Model.Item1.Color" readonly="">
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Marca</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="readOnlyInput" type="text" placeholder="@Model.Item1.Marca" readonly="">
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Proveedor</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="readOnlyInput" type="text" placeholder="@Model.Item1.Proveedor" readonly="">
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Catalago</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="readOnlyInput" type="text" placeholder="@Model.Item1.Catalago" readonly="">
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Titulo</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="readOnlyInput" type="text" placeholder="@Model.Item1.Title" readonly="">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg">
+
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Descripcion</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="readOnlyInput" type="text" placeholder="@Model.Item1.Description" readonly="">
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Observaciones</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="readOnlyInput" type="text" placeholder="@Model.Item1.Observations" readonly="">
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Precio Distribuidor</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="readOnlyInput" type="text" placeholder="@Model.Item1.PriceDistributor" readonly="">
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Precio Cliente</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="readOnlyInput" type="text" placeholder="@Model.Item1.PriceClient" readonly="">
+
+                </div>
+            </div>    <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Precio Empleado</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="readOnlyInput" type="text" placeholder="@Model.Item1.PriceMember" readonly="">
+
+                </div>
+            </div>    <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Activado</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="readOnlyInput" type="text" placeholder="@Model.Item1.IsEnabled.ToString()" readonly="">
+
+                </div>
+            </div>    <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Fecha actualizacion</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="readOnlyInput" type="text" placeholder="@Model.Item1.DateUpdate" readonly="">
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg">
+
+            <div class="form-group row">
+                @try
+                {
+                    if (Model.Item2.Count != 0)
+                    {
+                        <img src="@imggg(Model.Item2.FirstOrDefault().Image)" alt="" height="250" width="250">
+
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                
+            </div>
+
+            <input type="button" class="btn btn-success" value="Editar" name="_editar" onclick="location.href='@Url.Action("_editProduct","Productos",new {id = Model.Item1.Id })'" />
+
+        </div>
+
+
+
+        </div>
+
+</form>
+
+
+
+@functions{ 
+
+    public string imggg(byte[] im)
+    {
+        var base64 = Convert.ToBase64String(im);
+        string imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+        return imgSrc;
+    }
+
+}
+

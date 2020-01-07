@@ -6,50 +6,59 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*@foreach (var item in Model)
-    {
-       <h1> @item.Nombre</h1>
 
-    }*@
 <br />
 <h2>Lista de productos</h2>
+<div class=" row" style="text-align:right; padding:5px">
+    <div class="col-md-12">
+        
+        <input type="button" class="btn btn-primary" value="Nuevo" />
+    </div>
+</div>  
 <br />
 
 
-<table class=" table table-hover">
-    <thead class="table-primary">
-        <tr>
-            <th scope="col">id</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Descripcion</th>
-            <th scope="col">Observaciones</th>
-            <th scope="col">Precio distribuidor</th>
-            <th scope="col">Precio Cliente</th>
-            <th scope="col">Fecha Actualizacion</th>
-        </tr>
-    </thead>
-    <tbody class="table-light">
-        @foreach (Producto item in Model)
-        {
+    <table class=" table table-hover" height=500>
+        <thead class="table-primary">
             <tr>
-                <th scope="col">@item.Id</th>
-                <th scope="col">@item.Nombre</th>
-                <th scope="col">@item.Description</th>
-                <th scope="col">@item.Observations</th>
-                <th scope="col">@item.PriceDistributor</th>
-                <th scope="col">@item.PriceClient</th>
-                <th scope="col">@item.DateUpdate</th>
+                <th scope="col">id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Observaciones</th>
+                <th scope="col">Precio distribuidor</th>
+                <th scope="col">Precio Cliente</th>
+                <th scope="col">Fecha Actualizacion</th>
+                <th scope="col">Operaciones</th>
 
             </tr>
+        </thead>
+        <tbody class="table-light">
+            @foreach (Producto item in Model)
+            {
+                <tr>
+                    <th scope="col">@item.Id</th>
+                    <th scope="col">@item.Nombre</th>
+                    <th scope="col">@item.Description</th>
+                    <th scope="col">@item.Observations</th>
+                    <th scope="col">@item.PriceDistributor</th>
+                    <th scope="col">@item.PriceClient</th>
+                    <th scope="col">@item.DateUpdate.ToShortDateString()</th>
+                    <th scope="col">
+                        <input type="button" class="btn btn-outline-info" value="Ver" name=" _ver" onclick="location.href='@Url.Action("_viewProduct","Productos",new {id = @item.Id })'"/>
+                        <input type="button" class="btn btn-outline-success" value="Editar" name="_editar" onclick="location.href='@Url.Action("_editProduct","Productos",new {id = @item.Id })'"/>
+                        <input type="button" class="btn btn-outline-danger" value="Eliminar" name="_eliminar"/>
+                    </th>
 
-        }
+                </tr>
+
+            }
 
 
-    </tbody>
+        </tbody>
 
 
 
-</table>
+    </table>id 
 
 
 

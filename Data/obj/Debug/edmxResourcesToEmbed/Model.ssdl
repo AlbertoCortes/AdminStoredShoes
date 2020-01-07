@@ -171,18 +171,6 @@
     <Property Name="IdProduct" Type="int" Nullable="false" />
     <Property Name="IdSize" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="FK_CatBrandsImagesProduct">
-    <End Role="CatBrands" Type="Self.CatBrands" Multiplicity="1" />
-    <End Role="ImagesProduct" Type="Self.ImagesProduct" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatBrands">
-        <PropertyRef Name="IdBrand" />
-      </Principal>
-      <Dependent Role="ImagesProduct">
-        <PropertyRef Name="IdImageProduct" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_CatBrandsProducts">
     <End Role="CatBrands" Type="Self.CatBrands" Multiplicity="0..1" />
     <End Role="Products" Type="Self.Products" Multiplicity="*" />
@@ -204,18 +192,6 @@
       </Principal>
       <Dependent Role="CatCatalogs">
         <PropertyRef Name="IdProvider" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CatCatalogsImagesProduct">
-    <End Role="CatCatalogs" Type="Self.CatCatalogs" Multiplicity="1" />
-    <End Role="ImagesProduct" Type="Self.ImagesProduct" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatCatalogs">
-        <PropertyRef Name="IdCatalog" />
-      </Principal>
-      <Dependent Role="ImagesProduct">
-        <PropertyRef Name="IdImageProduct" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -411,9 +387,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="ACOB_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ACOB_Search_Inner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="name" Type="nvarchar(max)" Mode="In" />
+  </Function>
   <Function Name="ACOB_SearchByIdOrName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
     <Parameter Name="name" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="ACOB_SelectImages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
   </Function>
   <EntityContainer Name="DataProductsModelStoreContainer">
     <EntitySet Name="CatBrands" EntityType="Self.CatBrands" Schema="dbo" store:Type="Tables" />
@@ -432,10 +418,6 @@
     <EntitySet Name="Qualification" EntityType="Self.Qualification" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SimilarProduct" EntityType="Self.SimilarProduct" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SizeForProduct" EntityType="Self.SizeForProduct" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_CatBrandsImagesProduct" Association="Self.FK_CatBrandsImagesProduct">
-      <End Role="CatBrands" EntitySet="CatBrands" />
-      <End Role="ImagesProduct" EntitySet="ImagesProduct" />
-    </AssociationSet>
     <AssociationSet Name="FK_CatBrandsProducts" Association="Self.FK_CatBrandsProducts">
       <End Role="CatBrands" EntitySet="CatBrands" />
       <End Role="Products" EntitySet="Products" />
@@ -443,10 +425,6 @@
     <AssociationSet Name="FK_CatCatalogsCatProviders" Association="Self.FK_CatCatalogsCatProviders">
       <End Role="CatProviders" EntitySet="CatProviders" />
       <End Role="CatCatalogs" EntitySet="CatCatalogs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CatCatalogsImagesProduct" Association="Self.FK_CatCatalogsImagesProduct">
-      <End Role="CatCatalogs" EntitySet="CatCatalogs" />
-      <End Role="ImagesProduct" EntitySet="ImagesProduct" />
     </AssociationSet>
     <AssociationSet Name="FK_CatCatalogsProducts" Association="Self.FK_CatCatalogsProducts">
       <End Role="CatCatalogs" EntitySet="CatCatalogs" />

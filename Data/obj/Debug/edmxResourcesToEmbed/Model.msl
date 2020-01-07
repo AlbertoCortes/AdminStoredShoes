@@ -210,5 +210,28 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACOB_Search_Inner" FunctionName="DataProductsModel.Store.ACOB_Search_Inner">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DataProductsModel.ACOB_Search_Inner_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="Catalago" ColumnName="Catalago" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Observations" ColumnName="Observations" />
+          <ScalarProperty Name="PriceDistributor" ColumnName="PriceDistributor" />
+          <ScalarProperty Name="PriceClient" ColumnName="PriceClient" />
+          <ScalarProperty Name="PriceMember" ColumnName="PriceMember" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACOB_SelectImages" FunctionName="DataProductsModel.Store.ACOB_SelectImages" />
+    <FunctionImportMapping FunctionImportName="ACOB_Delete" FunctionName="DataProductsModel.Store.ACOB_Delete" />
   </EntityContainerMapping>
 </Mapping>

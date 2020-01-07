@@ -19,10 +19,15 @@ namespace Data
             var result = model.ACOB_SearchByIdOrName(id, name);
             return SerializeJson<IEnumerable<ACOB_SearchByIdOrName_Result>, List<Producto>>(result);
         }
+        public static List<ProductoInfo> ProductInfo(int id, string name)
+        {
+            var result = model.ACOB_Search_Inner(id, name);
+            return SerializeJson<IEnumerable<ACOB_Search_Inner_Result>, List<ProductoInfo>>(result);
+        }
 
         public static List<Imagen> GetImagen(int id)
         {
-            var result = from mod in model.ImagesProduct where mod.IdImage == id select mod;
+            var result = model.ACOB_SelectImages(id);
             return SerializeJson<IEnumerable<ImagesProduct>, List<Imagen>>(result);
         }
 
@@ -33,6 +38,8 @@ namespace Data
             return JsonConvert.DeserializeObject<Out>(output);
         }
 
+
+      
 
         
 

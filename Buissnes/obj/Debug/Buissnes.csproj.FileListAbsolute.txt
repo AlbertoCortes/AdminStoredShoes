@@ -1,3 +1,5 @@
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Buissnes\obj\Debug\Buissnes.csproj.CoreCompileInputs.cache
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Buissnes\obj\Debug\Buissnes.csprojAssemblyReference.cache
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Buissnes\bin\Debug\Buissnes.dll.config
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Buissnes\bin\Debug\Buissnes.dll
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Buissnes\bin\Debug\Buissnes.pdb
@@ -13,8 +15,6 @@ C:\Users\Curso\Documents\Academia\AdminStoredShoes\Buissnes\bin\Debug\Entities.d
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Buissnes\bin\Debug\EntityFramework.xml
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Buissnes\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Buissnes\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Curso\Documents\Academia\AdminStoredShoes\Buissnes\obj\Debug\Buissnes.csprojAssemblyReference.cache
-C:\Users\Curso\Documents\Academia\AdminStoredShoes\Buissnes\obj\Debug\Buissnes.csproj.CoreCompileInputs.cache
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Buissnes\obj\Debug\Buissnes.csproj.CopyComplete
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Buissnes\obj\Debug\Buissnes.dll
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Buissnes\obj\Debug\Buissnes.pdb

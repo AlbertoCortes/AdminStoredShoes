@@ -20,9 +20,13 @@ namespace Buissnes
             return DataSrc.GetImagen(id);
         }
 
-         public static List<Producto> SearchProd(int id, string name)
+        public static List<Producto> SearchProd(int id, string name)
         {
             return DataSrc.SearchProducts(id, name);
+        }
+        public static List<ProductoInfo> ProductInfo(int id, string name)
+        {
+            return DataSrc.ProductInfo(id, name);
         }
     }
 }   

@@ -1,3 +1,4 @@
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\AdminStoredShoes\obj\Debug\AdminStoredShoes.csproj.CoreCompileInputs.cache
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\AdminStoredShoes\bin\AdminStoredShoes.dll.config
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\AdminStoredShoes\bin\AdminStoredShoes.dll
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\AdminStoredShoes\bin\AdminStoredShoes.pdb
@@ -108,7 +109,6 @@ C:\Users\Curso\Documents\Academia\AdminStoredShoes\AdminStoredShoes\bin\Microsof
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\AdminStoredShoes\bin\Data.pdb
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\AdminStoredShoes\bin\Data.dll.config
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\AdminStoredShoes\obj\Debug\AdminStoredShoes.csprojAssemblyReference.cache
-C:\Users\Curso\Documents\Academia\AdminStoredShoes\AdminStoredShoes\obj\Debug\AdminStoredShoes.csproj.CoreCompileInputs.cache
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\AdminStoredShoes\obj\Debug\AdminStoredShoes.csproj.CopyComplete
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\AdminStoredShoes\obj\Debug\AdminStoredShoes.dll
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\AdminStoredShoes\obj\Debug\AdminStoredShoes.pdb

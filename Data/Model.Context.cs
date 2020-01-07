@@ -56,5 +56,45 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ACOB_SearchByIdOrName_Result>("ACOB_SearchByIdOrName", idParameter, nameParameter);
         }
+    
+        public virtual ObjectResult<ACOB_Search_Inner_Result> ACOB_Search_Inner(Nullable<int> id, string name)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ACOB_Search_Inner_Result>("ACOB_Search_Inner", idParameter, nameParameter);
+        }
+    
+        public virtual ObjectResult<ImagesProduct> ACOB_SelectImages(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ImagesProduct>("ACOB_SelectImages", idParameter);
+        }
+    
+        public virtual ObjectResult<ImagesProduct> ACOB_SelectImages(Nullable<int> id, MergeOption mergeOption)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ImagesProduct>("ACOB_SelectImages", mergeOption, idParameter);
+        }
+    
+        public virtual int ACOB_Delete(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ACOB_Delete", idParameter);
+        }
     }
 }

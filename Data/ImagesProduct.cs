@@ -9,6 +9,7 @@
 
 namespace Data
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -20,9 +21,12 @@ namespace Data
         public byte[] Image { get; set; }
         public string DateUpdate { get; set; }
         public string IsEnabled { get; set; }
-    
+
+        [JsonIgnore]
         public virtual CatBrands CatBrands { get; set; }
+        [JsonIgnore]
         public virtual CatCatalogs CatCatalogs { get; set; }
+        [JsonIgnore]
         public virtual Products Products { get; set; }
     }
 }

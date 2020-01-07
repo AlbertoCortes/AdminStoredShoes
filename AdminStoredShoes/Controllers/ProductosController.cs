@@ -16,6 +16,23 @@ namespace AdminStoredShoes.Controllers
             List<Producto> prod = BuissnesSrc.SearchProd(0, "%%");
             return View(prod);
         }
-        
+
+    
+        public ActionResult _viewProduct(int id)
+        {
+            ProductoInfo prod = BuissnesSrc.ProductInfo(id, "%%").FirstOrDefault();
+            List<Imagen> imagenes = BuissnesSrc.GetImagenes(id);
+            var data = new Tuple<ProductoInfo, List<Imagen>>(prod, imagenes); 
+            return View(data);
+        }
+
+        public ActionResult _editProduct(int id)
+        {
+            Producto prod = BuissnesSrc.SearchProd(id,"%%").FirstOrDefault();
+            return View(prod);
+        }
+       
+
     }
+
 }

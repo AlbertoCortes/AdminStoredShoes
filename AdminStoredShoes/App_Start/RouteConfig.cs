@@ -24,6 +24,13 @@ namespace AdminStoredShoes
                 url:"{controller}/{action}",
                 defaults: new { Controller = "Productos", action = "Index"}
                 );
+
+            routes.MapRoute(
+                name: "_view",
+                url: "{controller}/{action}/{id}",
+                defaults: new { Controller = "Productos", action = "Index"}
+                );
+
         }
     }
 }
