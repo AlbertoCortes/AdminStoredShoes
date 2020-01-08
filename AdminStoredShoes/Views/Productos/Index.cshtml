@@ -8,7 +8,7 @@
 
 }
 
-@try
+@*@try
 {
     if (TempData["SuccessUpdate"].ToString() == "true")
     {
@@ -32,14 +32,29 @@ catch (Exception)
 {
 
 
-}
+}*@
 
 <br />
 <h2>Lista de productos</h2>
-<div class=" row" style="text-align:right; padding:5px">
-    <div class="col-md-12">
+<div class=" row" style="text-align:justify; padding:5px">
+    <div class="col-lg">
+        @using (Html.BeginForm("_searchProduct", "Productos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.Hidden("returnUrl", Request.Url.ToString())
+            <input type="text" placeholder="Buscar" name="buscar"/>
 
-        <input type="button" class="btn btn-primary" value="Nuevo" onclick="location.href='@Url.Action("_insertProduct","Productos")'" />
+
+            <input type="submit" class="btn btn-primary" value="Buscar" />
+        }
+
+
+
+
+    </div>
+<div class="col-lg" >  
+       
+
+        <input style="text-align:right" type="button" class="btn btn-primary" value="Nuevo" onclick="location.href='@Url.Action("_insertProduct","Productos")'" />
     </div>
 </div>
 <br />

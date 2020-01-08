@@ -84,6 +84,23 @@ namespace AdminStoredShoes.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult _searchProduct(FormCollection formCollection)
+        {
+            int nuid;
+            try
+            {
+                nuid = Int32.Parse(formCollection["buscar"]);
+            }
+            catch
+            {
+                nuid = 0;
+            }
+            
+            string buscar = formCollection["buscar"];
+            int i = 0;
+            List<Producto> prod = BuissnesSrc.SearchProd(nuid, "%"+buscar+"%");
+            return View("Index",prod);
+        }
 
 
         public ActionResult _deleteProduct(int id)
