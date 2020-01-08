@@ -180,6 +180,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProductFULL.cs" />
     <Compile Include="Models\Productos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -347,6 +348,7 @@
     <Content Include="Views\Productos\Index.cshtml" />
     <Content Include="Views\Productos\_viewProduct.cshtml" />
     <Content Include="Views\Productos\_editProduct.cshtml" />
+    <Content Include="Views\Productos\_insertProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

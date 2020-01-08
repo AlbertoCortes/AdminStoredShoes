@@ -233,5 +233,66 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="ACOB_SelectImages" FunctionName="DataProductsModel.Store.ACOB_SelectImages" />
     <FunctionImportMapping FunctionImportName="ACOB_Delete" FunctionName="DataProductsModel.Store.ACOB_Delete" />
+    <FunctionImportMapping FunctionImportName="ACOB_SelectBrand" FunctionName="DataProductsModel.Store.ACOB_SelectBrand">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DataProductsModel.ACOB_SelectBrand_Result">
+          <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACOB_SelectCatalog" FunctionName="DataProductsModel.Store.ACOB_SelectCatalog">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DataProductsModel.ACOB_SelectCatalog_Result">
+          <ScalarProperty Name="IdCatalog" ColumnName="IdCatalog" />
+          <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
+          <ScalarProperty Name="Season" ColumnName="Season" />
+          <ScalarProperty Name="StarActiveDate" ColumnName="StarActiveDate" />
+          <ScalarProperty Name="EndActiveDate" ColumnName="EndActiveDate" />
+          <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACOB_SelectColor" FunctionName="DataProductsModel.Store.ACOB_SelectColor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DataProductsModel.ACOB_SelectColor_Result">
+          <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="HexaDecimal" ColumnName="HexaDecimal" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACOB_SelectProvider" FunctionName="DataProductsModel.Store.ACOB_SelectProvider">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DataProductsModel.ACOB_SelectProvider_Result">
+          <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACOB_SelectType" FunctionName="DataProductsModel.Store.ACOB_SelectType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DataProductsModel.ACOB_SelectType_Result">
+          <ScalarProperty Name="IdType" ColumnName="IdType" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACOB_InsertProduct" FunctionName="DataProductsModel.Store.ACOB_InsertProduct" />
+    <FunctionImportMapping FunctionImportName="ACOB_UpdateProduct" FunctionName="DataProductsModel.Store.ACOB_UpdateProduct" />
   </EntityContainerMapping>
 </Mapping>

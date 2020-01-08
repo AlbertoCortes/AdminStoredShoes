@@ -10,19 +10,15 @@
 namespace Data
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class ImagesProduct
+    public partial class ACOB_SelectCatalog_Result
     {
-        public int IdImage { get; set; }
-        public int IdImageProduct { get; set; }
-        public string Decription { get; set; }
-        public byte[] Image { get; set; }
+        public int IdCatalog { get; set; }
+        public int IdProvider { get; set; }
+        public string Season { get; set; }
+        public string StarActiveDate { get; set; }
+        public string EndActiveDate { get; set; }
         public string DateUpdate { get; set; }
         public string IsEnabled { get; set; }
-    
-        public virtual CatBrands CatBrands { get; set; }
-        public virtual CatCatalogs CatCatalogs { get; set; }
-        public virtual Products Products { get; set; }
     }
 }

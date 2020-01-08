@@ -9,6 +9,7 @@
 
 namespace Data
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -41,23 +42,35 @@ namespace Data
         public bool IsEnabled { get; set; }
         public string Keywords { get; set; }
         public System.DateTime DateUpdate { get; set; }
+
+        [JsonIgnore]
     
         public virtual CatBrands CatBrands { get; set; }
+        [JsonIgnore]
         public virtual CatCatalogs CatCatalogs { get; set; }
+        [JsonIgnore]
         public virtual CatColors CatColors { get; set; }
+        [JsonIgnore]
         public virtual CatProviders CatProviders { get; set; }
+        [JsonIgnore]
         public virtual CatTypeProduct CatTypeProduct { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Comments> Comments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<DetailProduct> DetailProduct { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<ImagesProduct> ImagesProduct { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<SimilarProduct> SimilarProduct { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<SizeForProduct> SizeForProduct { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Qualification> Qualification { get; set; }
     }
 }

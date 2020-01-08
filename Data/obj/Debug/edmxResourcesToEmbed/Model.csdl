@@ -562,6 +562,46 @@
     <FunctionImport Name="ACOB_Delete">
       <Parameter Name="id" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="ACOB_SelectBrand" ReturnType="Collection(DataProductsModel.ACOB_SelectBrand_Result)" />
+    <FunctionImport Name="ACOB_SelectCatalog" ReturnType="Collection(DataProductsModel.ACOB_SelectCatalog_Result)" />
+    <FunctionImport Name="ACOB_SelectColor" ReturnType="Collection(DataProductsModel.ACOB_SelectColor_Result)" />
+    <FunctionImport Name="ACOB_SelectProvider" ReturnType="Collection(DataProductsModel.ACOB_SelectProvider_Result)" />
+    <FunctionImport Name="ACOB_SelectType" ReturnType="Collection(DataProductsModel.ACOB_SelectType_Result)" />
+    <FunctionImport Name="ACOB_InsertProduct">
+      <Parameter Name="IdType" Mode="In" Type="Int32" />
+      <Parameter Name="IdColor" Mode="In" Type="Int32" />
+      <Parameter Name="IdBrand" Mode="In" Type="Int32" />
+      <Parameter Name="IdProvider" Mode="In" Type="Int32" />
+      <Parameter Name="IdCatalog" Mode="In" Type="Int32" />
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="Observations" Mode="In" Type="String" />
+      <Parameter Name="PriceDistributor" Mode="In" Type="Decimal" />
+      <Parameter Name="PriceClient" Mode="In" Type="Decimal" />
+      <Parameter Name="PriceMember" Mode="In" Type="Decimal" />
+      <Parameter Name="IsEnabled" Mode="In" Type="Boolean" />
+      <Parameter Name="Keywords" Mode="In" Type="String" />
+      <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="ACOB_UpdateProduct">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="IdType" Mode="In" Type="Int32" />
+      <Parameter Name="IdColor" Mode="In" Type="Int32" />
+      <Parameter Name="IdBrand" Mode="In" Type="Int32" />
+      <Parameter Name="IdProvider" Mode="In" Type="Int32" />
+      <Parameter Name="IdCatalog" Mode="In" Type="Int32" />
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="Observations" Mode="In" Type="String" />
+      <Parameter Name="PriceDistributor" Mode="In" Type="Decimal" />
+      <Parameter Name="PriceClient" Mode="In" Type="Decimal" />
+      <Parameter Name="PriceMember" Mode="In" Type="Decimal" />
+      <Parameter Name="IsEnabled" Mode="In" Type="Boolean" />
+      <Parameter Name="Keywords" Mode="In" Type="String" />
+      <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="ACOB_SearchByIdOrName_Result">
     <Property Type="Int32" Name="Id" Nullable="false" />
@@ -597,5 +637,44 @@
     <Property Type="Decimal" Name="PriceMember" Nullable="false" Precision="18" Scale="0" />
     <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
     <Property Type="DateTime" Name="DateUpdate" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="ACOB_SelectBrand_Result">
+    <Property Type="Int32" Name="IdBrand" Nullable="false" />
+    <Property Type="String" Name="Code" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" />
+    <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+    <Property Type="DateTime" Name="DateUpdate" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="ACOB_SelectCatalog_Result">
+    <Property Type="Int32" Name="IdCatalog" Nullable="false" />
+    <Property Type="Int32" Name="IdProvider" Nullable="false" />
+    <Property Type="String" Name="Season" Nullable="false" />
+    <Property Type="String" Name="StarActiveDate" Nullable="false" />
+    <Property Type="String" Name="EndActiveDate" Nullable="false" />
+    <Property Type="String" Name="DateUpdate" Nullable="false" />
+    <Property Type="String" Name="IsEnabled" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ACOB_SelectColor_Result">
+    <Property Type="Int32" Name="IdColor" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" />
+    <Property Type="String" Name="HexaDecimal" Nullable="false" />
+    <Property Type="Boolean" Name="IsEnable" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ACOB_SelectProvider_Result">
+    <Property Type="Int32" Name="IdProvider" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" />
+    <Property Type="String" Name="IsEnabled" Nullable="false" />
+    <Property Type="DateTime" Name="DateUpdate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Url" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ACOB_SelectType_Result">
+    <Property Type="Int32" Name="IdType" Nullable="false" />
+    <Property Type="String" Name="Code" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" />
+    <Property Type="DateTime" Name="DateUpdate" Nullable="false" Precision="23" />
+    <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
   </ComplexType>
 </Schema>

@@ -11,3 +11,4 @@ C:\Users\Curso\Documents\Academia\AdminStoredShoes\Entities\obj\Debug\Entities.c
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Entities\obj\Debug\Entities.csproj.CopyComplete
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Entities\obj\Debug\Entities.dll
 C:\Users\Curso\Documents\Academia\AdminStoredShoes\Entities\obj\Debug\Entities.pdb
+C:\Users\Curso\Documents\Academia\AdminStoredShoes\Entities\obj\Debug\Entities.csprojAssemblyReference.cache

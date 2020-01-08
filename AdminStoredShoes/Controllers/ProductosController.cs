@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Entities;
 using Buissnes;
+using AdminStoredShoes.Models;
 
 namespace AdminStoredShoes.Controllers
 {
@@ -27,11 +28,69 @@ namespace AdminStoredShoes.Controllers
         }
 
         public ActionResult _editProduct(int id)
-        {
-            Producto prod = BuissnesSrc.SearchProd(id,"%%").FirstOrDefault();
-            return View(prod);
+        {   
+            ProductFULL producto = new ProductFULL {
+             prod = BuissnesSrc.SearchProd(id,null).FirstOrDefault(),
+             tipo = BuissnesSrc.SelectTipo(),
+             color = BuissnesSrc.SelectColor(),
+             marca = BuissnesSrc.SelectMarca(),
+             proveedor = BuissnesSrc.SelectProveedor(),
+             catalago = BuissnesSrc.SelectCatalago()
+        };
+            return View(producto);
         }
-       
+
+        public ActionResult _uploadProduct( FormCollection formCollection)
+        {
+            bool status = ProductFULL.UpdateProductoModel(formCollection);
+            if (status)
+            {
+                TempData["SuccessUpdate"] = "true";
+            }
+            else
+            {
+                TempData["SuccessUpdate"] = "false";
+            }
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult _insertProduct()
+        {
+            ProductFULL producto = new ProductFULL
+            {
+                tipo = BuissnesSrc.SelectTipo(),
+                color = BuissnesSrc.SelectColor(),
+                marca = BuissnesSrc.SelectMarca(),
+                proveedor = BuissnesSrc.SelectProveedor(),
+                catalago = BuissnesSrc.SelectCatalago()
+            };
+            return View(producto);
+        }
+
+
+
+
+        public ActionResult _insertProductAction(FormCollection formCollection)
+        {
+            bool status = ProductFULL.InsertProductoModel(formCollection);
+            if (status)
+            {
+                TempData["SuccessInsert"] = "true";
+            }
+            else
+            {
+                TempData["SuccessInsert"] = "false";
+            }
+            return RedirectToAction("Index");
+        }
+
+
+
+        public ActionResult _deleteProduct(int id)
+        {
+            BuissnesSrc.DeleteProduct(id);
+            return RedirectToAction("Index");
+        }
 
     }
 
