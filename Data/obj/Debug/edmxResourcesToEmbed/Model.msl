@@ -294,5 +294,6 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="ACOB_InsertProduct" FunctionName="DataProductsModel.Store.ACOB_InsertProduct" />
     <FunctionImportMapping FunctionImportName="ACOB_UpdateProduct" FunctionName="DataProductsModel.Store.ACOB_UpdateProduct" />
+    <FunctionImportMapping FunctionImportName="ACOB_InsertImage" FunctionName="DataProductsModel.Store.ACOB_InsertImage" />
   </EntityContainerMapping>
 </Mapping>

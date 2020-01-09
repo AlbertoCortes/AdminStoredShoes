@@ -70,9 +70,9 @@ namespace AdminStoredShoes.Controllers
 
 
 
-        public ActionResult _insertProductAction(FormCollection formCollection)
+        public ActionResult _insertProductAction(FormCollection formCollection, HttpPostedFileBase file)
         {
-            bool status = ProductFULL.InsertProductoModel(formCollection);
+            bool status = ProductFULL.InsertProductoModel(formCollection, file);
             if (status)
             {
                 TempData["SuccessInsert"] = "true";

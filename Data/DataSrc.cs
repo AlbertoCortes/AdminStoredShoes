@@ -12,7 +12,17 @@ namespace Data
         {
             model.ACOB_Delete(id);
         }
+        public static void InsertImagen(Imagen imag)
+        {
+            model.ACOB_InsertImage(
+                imag.IdImageProduct,
+                imag.Decription,
+                imag.Image,
+                imag.DateUpdate,
+                imag.IsEnabled
 
+                );
+        }
         public static List<Producto> GetProductos()
         {
             var result = from mod in model.Products select mod ;

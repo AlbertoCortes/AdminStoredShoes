@@ -395,6 +395,13 @@
         <Function Name="ACOB_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
+        <Function Name="ACOB_InsertImage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdImageProduct" Type="int" Mode="In" />
+          <Parameter Name="Decription" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Image" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="DateUpdate" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="IsEnabled" Type="nvarchar(max)" Mode="In" />
+        </Function>
         <Function Name="ACOB_InsertProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdType" Type="int" Mode="In" />
           <Parameter Name="IdColor" Type="int" Mode="In" />
@@ -1142,6 +1149,13 @@
             <Parameter Name="Keywords" Mode="In" Type="String" />
             <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="ACOB_InsertImage">
+            <Parameter Name="IdImageProduct" Mode="In" Type="Int32" />
+            <Parameter Name="Decription" Mode="In" Type="String" />
+            <Parameter Name="Image" Mode="In" Type="Binary" />
+            <Parameter Name="DateUpdate" Mode="In" Type="String" />
+            <Parameter Name="IsEnabled" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="ACOB_SearchByIdOrName_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -1516,6 +1530,7 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ACOB_InsertProduct" FunctionName="DataProductsModel.Store.ACOB_InsertProduct" />
           <FunctionImportMapping FunctionImportName="ACOB_UpdateProduct" FunctionName="DataProductsModel.Store.ACOB_UpdateProduct" />
+          <FunctionImportMapping FunctionImportName="ACOB_InsertImage" FunctionName="DataProductsModel.Store.ACOB_InsertImage" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

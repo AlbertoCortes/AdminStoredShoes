@@ -5,133 +5,152 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>_insertProduct</h2>
+<br />
+<h2>...Nuevo Producto...</h2>
+<br />
 
 
 
 
 
-@Html.BeginForm("_insertProductAction", "Productos", FormMethod.Post, new { enctype = "multipart/form-data" }){
-<form>
-    <div class="row">
-        <div class="col-lg">
+@using (Html.BeginForm("_insertProductAction", "Productos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <form>
+        <div class="row">
+            <div class="col-lg">
 
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Nombre</label>
-                <input type="text" class="form-control" value="" id="inputDefault" name="Nombre">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Nombre</label>
+                    <input type="text" class="form-control" value="" id="inputDefault" name="Nombre">
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label" for="exampleSelect1">Tipo</label>
+                    <select class="form-control" id="exampleSelect1" name="IdType">
+                        @foreach (var item in Model.tipo)
+                        {
+                            <option value="@item.IdType">@item.Code</option>
+                        }
+                    </select>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label class="col-form-label" for="exampleSelect1">Color</label>
+                    <select class="form-control" id="exampleSelect1" name="IdColor">
+                        @foreach (var item in Model.color)
+                        {
+                            <option value="@item.IdColor">@item.Name</option>
+                        }
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-form-label" for="exampleSelect1">Marca</label>
+                    <select class="form-control" id="exampleSelect1" name="IdBrand">
+                        @foreach (var item in Model.marca)
+                        {
+                            <option value="@item.IdBrand">@item.Code</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label" for="exampleSelect1">Proveedor</label>
+                    <select class="form-control" id="exampleSelect1" name="IdProvider">
+                        @foreach (var item in Model.proveedor)
+                        {
+                            <option value="@item.IdProvider">@item.Name</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label" for="exampleSelect1">Catalago</label>
+                    <select class="form-control" id="exampleSelect1" name="IdCatalog">
+                        @foreach (var item in Model.catalago)
+                        {
+                            <option value="@item.IdCatalog">@item.Season</option>
+                        }
+                    </select>
+                </div>
+
+
+            </div>
+            <div class="col-lg">
+
+
+
+
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Titulo</label>
+                    <input type="text" class="form-control" value="" id="inputDefault" name="Title">
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Descripcion</label>
+                    <input type="text" class="form-control" value="" id="inputDefault" name="Description">
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Observaciones</label>
+                    <input type="text" class="form-control" value="" id="inputDefault" name="Observations">
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Precio Distribuidor</label>
+                    <input type="text" class="form-control" value="" id="inputDefault" name="PriceDistribuitor" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Precio Cliente</label>
+                    <input type="text" class="form-control" value="" id="inputDefault" name="PriceClient" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Precio Cliente distinguido</label>
+                    <input type="text" class="form-control" value="" id="inputDefault" name="PriceMember" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
+                </div>
+
+
             </div>
 
-            <div class="form-group">
-                <label for="exampleSelect1">Tipo</label>
-                <select class="form-control" id="exampleSelect1" name="IdType">
-                    @foreach (var item in Model.tipo)
-                    {
-                        <option value="@item.IdType">@item.Code</option>
-                    }
-                </select>
+
+            <div class="col-lg">
+
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Keyword</label>
+                    <input type="text" class="form-control" value="" id="inputDefault" name="Keywords">
+                </div>
+
+
+
+
+
+                <div class="form-group">
+
+                    <label class="col-form-label" for="file">Upload Image:</label>
+                    <input type="file" name="file" id="file" /><br><br>
+
+                    
+
+
+                </div>
+
+                <input type="submit" class="btn btn-success" value="Aceptar" name="_insertar" />
+
+
             </div>
-
-
-
-
-            <div class="form-group">
-                <label for="exampleSelect1">Color</label>
-                <select class="form-control" id="exampleSelect1" name="IdColor">
-                    @foreach (var item in Model.color)
-                    {
-                        <option value="@item.IdColor">@item.Name</option>
-                    }
-                </select>
-            </div>
-
-
-            <div class="form-group">
-                <label for="exampleSelect1">Marca</label>
-                <select class="form-control" id="exampleSelect1" name="IdBrand">
-                    @foreach (var item in Model.marca)
-                    {
-                        <option value="@item.IdBrand">@item.Code</option>
-                    }
-                </select>
-            </div>
-
-
-
-          
         </div>
-        <div class="col-lg">
 
-            <div class="form-group">
-                <label for="exampleSelect1">Proveedor</label>
-                <select class="form-control" id="exampleSelect1" name="IdProvider">
-                    @foreach (var item in Model.proveedor)
-                    {
-                        <option value="@item.IdProvider">@item.Name</option>
-                    }
-                </select>
-            </div>
-
-            <div class="form-group" >
-                <label for="exampleSelect1">Catalago</label>
-                <select class="form-control" id="exampleSelect1" name="IdCatalog">
-                    @foreach (var item in Model.catalago)
-                    {
-                        <option value="@item.IdCatalog">@item.Season</option>
-                    }
-                </select>
-            </div>
+       
 
 
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Titulo</label>
-                <input type="text" class="form-control" value="" id="inputDefault" name="Title">
-            </div>
-
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Descripcion</label>
-                <input type="text" class="form-control" value="" id="inputDefault" name="Description">
-            </div>
-
-        </div>
-
-
-        <div class="col-lg">
-            
-
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Observaciones</label>
-                <input type="text" class="form-control" value="" id="inputDefault" name="Observations">
-            </div>
-
-
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Precio Distribuidor</label>
-                <input type="text" class="form-control" value="" id="inputDefault" name="PriceDistribuitor" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Precio Cliente</label>
-                <input type="text" class="form-control" value="" id="inputDefault" name="PriceClient" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
-            </div>
-
-
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Precio Cliente distinguido</label>
-                <input type="text" class="form-control" value="" id="inputDefault" name="PriceMember" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Keyword</label>
-                <input type="text" class="form-control" value="" id="inputDefault" name="Keywords">
-            </div>
-
-
-
-
-
-            
-        </div>
-    </div>
-
-    <input type="submit" class="btn btn-success" value="Aceptar" name="_insertar" />
-
-
-</form>
+    </form>
+}

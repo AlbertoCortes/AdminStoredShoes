@@ -42,9 +42,10 @@ namespace Data
         public bool IsEnabled { get; set; }
         public string Keywords { get; set; }
         public System.DateTime DateUpdate { get; set; }
-
-        [JsonIgnore]
     
+        [JsonIgnore]
+
+
         public virtual CatBrands CatBrands { get; set; }
         [JsonIgnore]
         public virtual CatCatalogs CatCatalogs { get; set; }

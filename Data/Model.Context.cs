@@ -255,5 +255,30 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ACOB_UpdateProduct", idParameter, idTypeParameter, idColorParameter, idBrandParameter, idProviderParameter, idCatalogParameter, titleParameter, nombreParameter, descriptionParameter, observationsParameter, priceDistributorParameter, priceClientParameter, priceMemberParameter, isEnabledParameter, keywordsParameter, dateUpdateParameter);
         }
+    
+        public virtual int ACOB_InsertImage(Nullable<int> idImageProduct, string decription, byte[] image, string dateUpdate, string isEnabled)
+        {
+            var idImageProductParameter = idImageProduct.HasValue ?
+                new ObjectParameter("IdImageProduct", idImageProduct) :
+                new ObjectParameter("IdImageProduct", typeof(int));
+    
+            var decriptionParameter = decription != null ?
+                new ObjectParameter("Decription", decription) :
+                new ObjectParameter("Decription", typeof(string));
+    
+            var imageParameter = image != null ?
+                new ObjectParameter("Image", image) :
+                new ObjectParameter("Image", typeof(byte[]));
+    
+            var dateUpdateParameter = dateUpdate != null ?
+                new ObjectParameter("DateUpdate", dateUpdate) :
+                new ObjectParameter("DateUpdate", typeof(string));
+    
+            var isEnabledParameter = isEnabled != null ?
+                new ObjectParameter("IsEnabled", isEnabled) :
+                new ObjectParameter("IsEnabled", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ACOB_InsertImage", idImageProductParameter, decriptionParameter, imageParameter, dateUpdateParameter, isEnabledParameter);
+        }
     }
 }

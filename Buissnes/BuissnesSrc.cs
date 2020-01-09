@@ -15,6 +15,8 @@ namespace Buissnes
             DataSrc.DeleteProduct(id);
         }
 
+        
+
         public static List<Producto> GetProductos()
         {
             return DataSrc.GetProductos();
@@ -43,6 +45,11 @@ namespace Buissnes
         public static void InserProduct(Producto prod)
         {
             DataSrc.InsertProduct(prod);
+        }
+
+        public static void InsertImage(Imagen im)
+        {
+            DataSrc.InsertImagen(im);
         }
 
         //Buissnes fill selectASP

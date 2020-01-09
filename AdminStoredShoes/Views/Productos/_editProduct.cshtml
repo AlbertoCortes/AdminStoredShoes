@@ -6,130 +6,140 @@
 
 }
 
-<h2>_editProduct</h2>
-@Html.BeginForm("_uploadProduct", "Productos",FormMethod.Post,new { enctype = "multipart/form-data" }){ 
-<form>
-    <div class="row">
-        <div class="col-lg">
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Id</label>
-                <input type="text"  class="form-control disabled" value="@Model.prod.Id" id="inputDefault" name="Id">
+<br />
+<h2>...Editar Producto...</h2>
+<br />
+@using (Html.BeginForm("_uploadProduct", "Productos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <form>
+        <div class="row">
+            <div class="col-lg">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Id</label>
+                    <input type="text" class="form-control disabled" value="@Model.prod.Id" id="inputDefault" name="Id">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Nombre</label>
+                    <input type="text" class="form-control" value="@Model.prod.Nombre" id="inputDefault" name="Nombre">
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label" for="exampleSelect1">Tipo</label>
+                    <select class="form-control" id="exampleSelect1" name="IdType">
+                        @foreach (var item in Model.tipo)
+                        {
+                            <option value="@item.IdType">@item.Code</option>
+                        }
+                    </select>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label class="col-form-label" for="exampleSelect1">Color</label>
+                    <select class="form-control" id="exampleSelect1" name="IdColor">
+                        @foreach (var item in Model.color)
+                        {
+                            <option value="@item.IdColor">@item.Name</option>
+                        }
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-form-label" for="exampleSelect1">Marca</label>
+                    <select class="form-control" id="exampleSelect1" name="IdBrand">
+                        @foreach (var item in Model.marca)
+                        {
+                            <option value="@item.IdBrand">@item.Code</option>
+                        }
+                    </select>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="col-form-label" for="exampleSelect1">Proveedor</label>
+                    <select class="form-control" id="exampleSelect1" name="IdProvider">
+                        @foreach (var item in Model.proveedor)
+                        {
+                            <option value="@item.IdProvider">@item.Name</option>
+                        }
+                    </select>
+                </div>
+
+
             </div>
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Nombre</label>
-                <input type="text" class="form-control" value="@Model.prod.Nombre" id="inputDefault" name="Nombre">
+
+
+            <div class="col-lg">
+                <div class="form-group">
+                    <label class="col-form-label" for="exampleSelect1">Catalago</label>
+                    <select class="form-control" id="exampleSelect1" name="IdCatalog">
+                        @foreach (var item in Model.catalago)
+                        {
+                            <option value="@item.IdCatalog">@item.Season</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Titulo</label>
+                    <input type="text" class="form-control" value="@Model.prod.Title" id="inputDefault" name="Title">
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Descripcion</label>
+                    <input type="text" class="form-control" value="@Model.prod.Description" id="inputDefault" name="Description">
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Observaciones</label>
+                    <input type="text" class="form-control" value="@Model.prod.Observations" id="inputDefault" name="Observations">
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Precio Distribuidor</label>
+                    <input type="text" class="form-control" value="@Model.prod.PriceDistributor" id="inputDefault" name="PriceDistribuitor">
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Precio Cliente</label>
+                    <input type="text" class="form-control" value="@Model.prod.PriceClient" id="inputDefault" name="PriceClient">
+                </div>
+
+
+            </div>
+            <div class="col-lg">
+
+
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Precio Cliente distinguido</label>
+                    <input type="text" class="form-control" value="@Model.prod.PriceMember" id="inputDefault" name="PriceMember">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Keyword</label>
+                    <input type="text" class="form-control" value="@Model.prod.Keywords" id="inputDefault" name="Keywords">
+                </div>
+
+
+
+
+
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Fecha de actualizacion</label>
+                    <input type="text" class="form-control" value="@Model.prod.DateUpdate" id="inputDefault" name="DateUpdate">
+                </div>
+                <input type="submit" class="btn btn-success" value="Aceptar" name="_editar" />
             </div>
 
-            <div class="form-group">
-                <label for="exampleSelect1">Tipo</label>
-                <select class="form-control" id="exampleSelect1" name="IdType">
-                    @foreach (var item in Model.tipo)
-                    {
-                        <option value="@item.IdType">@item.Code</option>
-                    }
-                </select>
-            </div>
 
-
-
-
-            <div class="form-group">
-                <label for="exampleSelect1">Color</label>
-                <select class="form-control" id="exampleSelect1" name="IdColor">
-                    @foreach (var item in Model.color)
-                    {
-                        <option value="@item.IdColor">@item.Name</option>
-                    }
-                </select>
-            </div>
-
-
-            <div class="form-group">
-                <label for="exampleSelect1">Marca</label>
-                <select class="form-control" id="exampleSelect1" name="IdBrand">
-                    @foreach (var item in Model.marca)
-                    {
-                        <option value="@item.IdBrand">@item.Code</option>
-                    }
-                </select>
-            </div>
-
-
-
-            <div class="form-group">
-                <label for="exampleSelect1">Proveedor</label>
-                <select class="form-control" id="exampleSelect1" name="IdProvider">
-                    @foreach (var item in Model.proveedor)
-                    {
-                        <option value="@item.IdProvider">@item.Name</option>
-                    }
-                </select>
-            </div>
-
-            <div class="form-group" >
-                <label for="exampleSelect1">Catalago</label>
-                <select class="form-control" id="exampleSelect1" name="IdCatalog">
-                    @foreach (var item in Model.catalago)
-                    {
-                        <option value="@item.IdCatalog">@item.Season</option>
-                    }
-                </select>
-            </div>
         </div>
 
 
-        <div class="col-lg">
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Titulo</label>
-                <input type="text" class="form-control" value="@Model.prod.Title" id="inputDefault" name="Title">
-            </div>
-
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Descripcion</label>
-                <input type="text" class="form-control" value="@Model.prod.Description" id="inputDefault" name="Description">
-            </div>
-
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Observaciones</label>
-                <input type="text" class="form-control" value="@Model.prod.Observations" id="inputDefault" name="Observations">
-            </div>
-
-
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Precio Distribuidor</label>
-                <input type="text" class="form-control" value="@Model.prod.PriceDistributor" id="inputDefault" name="PriceDistribuitor">
-            </div>
-
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Precio Cliente</label>
-                <input type="text" class="form-control" value="@Model.prod.PriceClient" id="inputDefault" name="PriceClient">
-            </div>
-
-
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Precio Cliente distinguido</label>
-                <input type="text" class="form-control" value="@Model.prod.PriceMember" id="inputDefault" name="PriceMember">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Keyword</label>
-                <input type="text" class="form-control" value="@Model.prod.Keywords" id="inputDefault" name="Keywords">
-            </div>
-
-
-
-
-
-            <div class="form-group">
-                <label class="col-form-label" for="inputDefault">Fecha de actualizacion</label>
-                <input type="text" class="form-control" value="@Model.prod.DateUpdate" id="inputDefault" name="DateUpdate">
-            </div>
-        </div>
-    </div>
-
-            <input type="submit" class="btn btn-success" value="Aceptar" name="_editar" />
-
-
-</form>
+    </form>
 
 }
 

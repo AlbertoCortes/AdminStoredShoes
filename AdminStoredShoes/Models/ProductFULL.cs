@@ -5,6 +5,7 @@ using Entities;
 using System.Web;
 using System.Web.Mvc;
 using Buissnes;
+using System.IO;
 
 namespace AdminStoredShoes.Models
 {
@@ -17,7 +18,7 @@ namespace AdminStoredShoes.Models
         public List<Proveedor> proveedor { get; set; }
         public List<Catalago> catalago { get; set; }
     
-        public static Boolean InsertProductoModel(FormCollection formCollection)
+        public static Boolean InsertProductoModel(FormCollection formCollection , HttpPostedFileBase file)
         {
             try
             {
@@ -40,6 +41,29 @@ namespace AdminStoredShoes.Models
                     DateUpdate = DateTime.Now.Date
                 };
                 BuissnesSrc.InserProduct(p);
+
+                p = BuissnesSrc.SearchProd(0,formCollection["Nombre"]).FirstOrDefault();
+
+                string pic = System.IO.Path.GetFileName(file.FileName);
+                if (file != null)
+                {
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        file.InputStream.CopyTo(ms);
+                        byte[] array = ms.GetBuffer();
+                        BuissnesSrc.InsertImage(new Imagen
+                        {
+                            IdImageProduct = p.Id,
+                            Decription = "",
+                            Image = array,
+                            DateUpdate = DateTime.Now.ToShortDateString(),
+                            IsEnabled = "1"
+                });
+                      
+                    }
+                }
+
+               
                 return true;
             }
             catch (Exception)
